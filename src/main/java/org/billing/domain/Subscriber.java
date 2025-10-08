@@ -1,4 +1,4 @@
-package org.example;
+package org.billing.domain;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
