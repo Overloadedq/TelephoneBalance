@@ -1,5 +1,7 @@
 package org.billing.domain;
 
+import org.billing.io.InMemorySubscriberRepo;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
@@ -52,7 +54,7 @@ public class Subscriber {
     @Override
     public String toString()
     {
-        return "Amount: " + amount + ", Balance: " + balance ;
+        return "PhoneNumber: "+phoneNumber+", Balance: "+balance+", TariffCode: "+tariffCode ;
 
     }
 

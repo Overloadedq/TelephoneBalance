@@ -3,12 +3,21 @@ package org.billing.io;
 import org.billing.domain.Subscriber;
 import org.billing.repo.SubscriberRepository;
 
+import java.io.*;
+import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 
 public class InMemorySubscriberRepo implements SubscriberRepository {
     private final Map<String, Subscriber> subscribers;
+
+
+
     public InMemorySubscriberRepo() {
-        subscribers = new HashMap<>();
+        subscribers = new LinkedHashMap<>();
+
     }
 
 
@@ -40,4 +49,59 @@ public class InMemorySubscriberRepo implements SubscriberRepository {
     public List<Subscriber> findAll() {
         return new ArrayList<>(subscribers.values());
     }
+
+    void loadFromFileCsv(String resourcePath) throws IOException {
+        if (resourcePath == null || resourcePath.isEmpty()) {
+            throw new IllegalArgumentException("Resource path is null or empty");
+        }
+        if (!resourcePath.toLowerCase().endsWith(".csv")) {
+            throw new IllegalArgumentException("Resource path is not a CSV file");
+        }
+
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath);
+        if (inputStream == null) {
+            throw new IOException("Resource not found: " + resourcePath);
+        }
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+        try (br) {
+           br.lines()
+                   .filter(line -> !line.isEmpty())
+                   .forEach(line -> {
+                       try{
+                           String[] parts = line.split(";",-1);
+                           if(parts.length!=3) {
+                               System.err.println("Некорректная строка"+line);
+                               return;
+                           }
+                           String phoneNumber = parts[0].replace("\"", "").trim();
+                           String balanceStr = parts[1].replace("\"", "").trim();
+                           String tariffCode = parts[2].replace("\"", "").trim();
+
+                           // Валидация phoneNumber
+                           if (phoneNumber.isEmpty()) {
+                               System.err.println("Пропущен номер телефона в строке: " + line);
+                               return;
+                           }
+
+                           // Преобразование balance в BigDecimal
+                           BigDecimal balance;
+                           try {
+                               balance = new BigDecimal(balanceStr);
+                           } catch (NumberFormatException e) {
+                               System.err.println("Некорректный формат balance в строке: " + line);
+                               return;
+                           }
+                           Subscriber subscriber = new Subscriber(phoneNumber,balance,tariffCode,BigDecimal.ZERO);
+                           save(subscriber);
+                       }
+                       catch (IllegalArgumentException e) {
+                           System.err.println("Ошибка обработки строки CSV: " + line + "; Причина: " + e.getMessage());
+                           e.printStackTrace();
+                       }
+                   });
+       }
+    }
+
+
 }
