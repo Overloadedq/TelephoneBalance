@@ -2,8 +2,8 @@ package org.billing.domain;
 
 public enum UsageType {
 
-        Call,
+        CALL,
         SMS,
-        Internet;
+        INTERNET;
 
 }

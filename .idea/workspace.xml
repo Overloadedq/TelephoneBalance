@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1722649f-2b56-4a78-9bf1-dd17fe5343c7" name="Changes" comment="-- Реализованы методы в классе InMemorySubscriberRepo">
+    <list default="true" id="1722649f-2b56-4a78-9bf1-dd17fe5343c7" name="Changes" comment="-- добавлен файл usage.csv,интерфейс UsageReader,класс UsageRecord , CsvUsageReader,enum UsageType.Метод Reder предназначен для чтения строк usage.csv">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/billing/domain/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billing/domain/Subscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/billing/io/InMemorySubscriberRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billing/io/InMemorySubscriberRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/billing/io/FileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/billing/io/FileTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +49,7 @@
   "keyToString": {
     "Application.InMemorySubscriberRepo.executor": "Run",
     "Application.Subscriber.executor": "Run",
+    "JUnit.FileTest.testCsvUsageReader.executor": "Debug",
     "JUnit.SubscriberTest.executor": "Run",
     "JUnit.SubscriberTest.testDebit.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -76,7 +75,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.InMemorySubscriberRepo">
+  <component name="RunManager" selected="JUnit.FileTest.testCsvUsageReader">
     <configuration name="InMemorySubscriberRepo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.billing.io.InMemorySubscriberRepo" />
       <module name="TelephoneBalance" />
@@ -99,6 +98,22 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileTest.testCsvUsageReader" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TelephoneBalance" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.billing.io.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.billing.io" />
+      <option name="MAIN_CLASS_NAME" value="org.billing.io.FileTest" />
+      <option name="METHOD_NAME" value="testCsvUsageReader" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -136,6 +151,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FileTest.testCsvUsageReader" />
         <item itemvalue="Application.InMemorySubscriberRepo" />
         <item itemvalue="Application.Subscriber" />
         <item itemvalue="JUnit.SubscriberTest" />
@@ -159,7 +175,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759846381296</updated>
-      <workItem from="1759846382351" duration="24823000" />
+      <workItem from="1759846382351" duration="40358000" />
     </task>
     <task id="LOCAL-00001" summary="-- Создание POJO класса Subscriber">
       <option name="closed" value="true" />
@@ -193,7 +209,31 @@
       <option name="project" value="LOCAL" />
       <updated>1759908539265</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="-- Реализован метод считывания данных из файла csv , добавлен новый пакет с тестом который выводит данные из файла">
+      <option name="closed" value="true" />
+      <created>1759922390382</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759922390382</updated>
+    </task>
+    <task id="LOCAL-00006" summary="-- Реализован метод saveAllToFileCsv в классе InMemorySubscriberRepo , также написан тест для проверки успешной записи в тестовый файл">
+      <option name="closed" value="true" />
+      <created>1759988596031</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759988596031</updated>
+    </task>
+    <task id="LOCAL-00007" summary="-- добавлен файл usage.csv,интерфейс UsageReader,класс UsageRecord , CsvUsageReader,enum UsageType.Метод Reder предназначен для чтения строк usage.csv">
+      <option name="closed" value="true" />
+      <created>1759994341162</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1759994341162</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +244,20 @@
     <MESSAGE value="-- Создание Test класса SubscriberTest" />
     <MESSAGE value="-- Создание интерфейса SubscriberRepository и создан класс InMemorySubscriberRepo в котором будут реализованы методы интерфейса(пока что заглушки)" />
     <MESSAGE value="-- Реализованы методы в классе InMemorySubscriberRepo" />
-    <option name="LAST_COMMIT_MESSAGE" value="-- Реализованы методы в классе InMemorySubscriberRepo" />
+    <MESSAGE value="-- Реализован метод считывания данных из файла csv , добавлен новый пакет с тестом который выводит данные из файла" />
+    <MESSAGE value="-- Реализован метод saveAllToFileCsv в классе InMemorySubscriberRepo , также написан тест для проверки успешной записи в тестовый файл" />
+    <MESSAGE value="-- добавлен файл usage.csv,интерфейс UsageReader,класс UsageRecord , CsvUsageReader,enum UsageType.Метод Reder предназначен для чтения строк usage.csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="-- добавлен файл usage.csv,интерфейс UsageReader,класс UsageRecord , CsvUsageReader,enum UsageType.Метод Reder предназначен для чтения строк usage.csv" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/billing/io/FileTest.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

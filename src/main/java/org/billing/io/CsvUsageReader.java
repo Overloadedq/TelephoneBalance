@@ -19,11 +19,13 @@ public class CsvUsageReader implements UsageReader {
 
         for (String line : lines) {
             if (line.trim().isEmpty()) {
+                System.out.println("Пропущена пустая строка: " + line);
                 continue;
             }
 
             String[] fields = line.split(";");
             if (fields.length != 6) {
+                System.out.println("Пропущена строка с неверным количеством полей: " + line);
                 continue;
             }
 
@@ -37,8 +39,9 @@ public class CsvUsageReader implements UsageReader {
 
                 UsageRecord record = new UsageRecord(type, source, destination, start, end, bytes);
                 result.add(record);
+                System.out.println("Добавлена запись: " + record);
             } catch (IllegalArgumentException | DateTimeParseException e) {
-
+                System.out.println("Ошибка парсинга строки: " + line + ", причина: " + e.getMessage());
                 continue;
             }
         }
