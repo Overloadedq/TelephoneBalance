@@ -104,4 +104,28 @@ public class InMemorySubscriberRepo implements SubscriberRepository {
     }
 
 
+    void saveAllToFileCsv(String resourcePath) throws IOException {
+        if (resourcePath == null || resourcePath.isEmpty()) {
+            throw new IllegalArgumentException("Resource path is null or empty");
+        }
+        if (!resourcePath.toLowerCase().endsWith(".csv")) {
+            throw new IllegalArgumentException("Resource path is not a CSV file");
+        }
+        Path resPath = Path.of(resourcePath);
+        try(BufferedWriter bw = Files.newBufferedWriter(resPath,StandardCharsets.UTF_8))
+        {
+            for(Subscriber subscriber : subscribers.values()) {
+                String phoneNumber = subscriber.getPhoneNumber().replace("\"", "");
+                String balanceStr = subscriber.getBalance().toString().replace("\"", "");
+                String tariffCode = subscriber.getTariffCode().replace("\"", "");
+                String csvLine = "\"" + phoneNumber + "\";\"" + balanceStr + "\";\"" + tariffCode + "\"";
+                bw.write(csvLine);
+                bw.newLine();
+
+            }
+
+
+        }
+    }
+
 }
