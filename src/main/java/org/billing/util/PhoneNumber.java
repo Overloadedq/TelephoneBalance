@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public final class PhoneNumber {
     private final String number;
-    private static final Pattern PHONE_NUMBER_PATTERN =  Pattern.compile("^\\{d5}-\\{d2}-\\{d7}$");
+    private static final Pattern PHONE_NUMBER_PATTERN =  Pattern.compile("^\\d{5}-\\d{2}-\\d{7}$");
     private static final String BELARUS_CODE="00375";
     private static final String OUR_CODE_OPERATOR="55";
     private static final Set<String> CODE_OPERATOR= Set.of("25","29","33","44");
