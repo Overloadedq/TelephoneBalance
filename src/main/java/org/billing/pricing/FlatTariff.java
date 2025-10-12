@@ -1,7 +1,6 @@
 package org.billing.pricing;
 
 import java.math.BigDecimal;
-import java.util.Calendar;
 
 public class FlatTariff implements TariffPlan {
     private static final String TariffCode = "A";

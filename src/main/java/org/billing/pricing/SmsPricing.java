@@ -4,7 +4,10 @@ import org.billing.domain.Subscriber;
 import org.billing.domain.UsageRecord;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 public interface SmsPricing {
-    BigDecimal calculateSmsPricing(UsageRecord sms, Subscriber subscriber);
+
+
+    BigDecimal calculateSmsCost(UsageRecord record, Subscriber sub);
 }

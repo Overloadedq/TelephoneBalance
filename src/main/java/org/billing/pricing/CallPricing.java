@@ -4,9 +4,11 @@ import org.billing.domain.Subscriber;
 import org.billing.domain.UsageRecord;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 public interface CallPricing {
-    BigDecimal calculateCallPrice(UsageRecord call, Subscriber subscriber);
 
+
+    BigDecimal calculateCallCost(UsageRecord record, Subscriber sub);
 }
 

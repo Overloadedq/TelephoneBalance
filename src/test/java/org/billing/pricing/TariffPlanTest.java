@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -49,7 +50,7 @@ public class TariffPlanTest {
 
     void testCallPricing(){
         System.out.println("Цена звонка");
-        BigDecimal cost = tariffPlan.getCallPricing().calculateCallPrice(call,subscriber);
+        BigDecimal cost = tariffPlan.getCallPricing().calculateCallCost(call,subscriber);
         System.out.println(cost);
         assertEquals(new BigDecimal("10.00"), cost,"Цена звонка должна быть 10 рублей");
 
@@ -58,7 +59,7 @@ public class TariffPlanTest {
     @DisplayName("Тестирование цены смс")
     void testSmsPricing(){
         System.out.println("Цена смс");
-        BigDecimal cost = tariffPlan.getSmsPricing().calculateSmsPricing(sms,subscriber);
+        BigDecimal cost = tariffPlan.getSmsPricing().calculateSmsCost(sms, subscriber);
         System.out.println(cost);
         assertEquals(new BigDecimal("10.00"),cost,"Цена смс должна быть 10 рублей");
     }
@@ -66,7 +67,7 @@ public class TariffPlanTest {
     @DisplayName("Тестирование цены интернета")
     void testInternetPricing(){
         System.out.println("Цена интернета");
-        BigDecimal cost = tariffPlan.getSmsPricing().calculateSmsPricing(internet,subscriber);
+        BigDecimal cost = tariffPlan.getSmsPricing().calculateSmsCost(internet, subscriber);
         System.out.println(cost);
         assertEquals(new BigDecimal("10.00"),cost,"Цена интернета должна быть 10 рублей");
     }
