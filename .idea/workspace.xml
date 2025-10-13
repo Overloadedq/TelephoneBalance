@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1722649f-2b56-4a78-9bf1-dd17fe5343c7" name="Changes" comment="-- Добавлен пакет Pricing в котором добавлены интерфейсы для цено образования , также добавлены классы заглушки FlatTariff и SimpleTariffFactory,написаны тесты">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/service/BillingEngine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/service/BillingResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/billing/service/BillingEngineTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="1722649f-2b56-4a78-9bf1-dd17fe5343c7" name="Changes" comment="-- Добавлена реализация обработки операций и тесты">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/pricing/impl/PlanA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/pricing/impl/PlanB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/pricing/impl/PlanC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/pricing/impl/PlanD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/billing/pricing/CallPricing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billing/pricing/CallPricing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/billing/pricing/FlatTariff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billing/pricing/FlatTariff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/billing/pricing/InternetPricing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billing/pricing/InternetPricing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/billing/pricing/SmsPricing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billing/pricing/SmsPricing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/billing/pricing/TariffPlanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/billing/pricing/TariffPlanTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +193,7 @@
       <workItem from="1760284986168" duration="6000" />
       <workItem from="1760284999491" duration="132000" />
       <workItem from="1760285236916" duration="19000" />
-      <workItem from="1760285262257" duration="5225000" />
+      <workItem from="1760285262257" duration="8140000" />
     </task>
     <task id="LOCAL-00001" summary="-- Создание POJO класса Subscriber">
       <option name="closed" value="true" />
@@ -289,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760283383711</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="-- Добавлена реализация обработки операций и тесты">
+      <option name="closed" value="true" />
+      <created>1760295572325</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1760295572325</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,6 +309,7 @@
     <MESSAGE value="-- Добавлен класс PhoneNumber который определяет формат номера телефона , методы определения кода страны , кода оператора , определение роуминга, в какой сети оператора" />
     <MESSAGE value="-- Добавлен класс с тестами PhoneNumberTest для класса PhoneNumber" />
     <MESSAGE value="-- Добавлен пакет Pricing в котором добавлены интерфейсы для цено образования , также добавлены классы заглушки FlatTariff и SimpleTariffFactory,написаны тесты" />
-    <option name="LAST_COMMIT_MESSAGE" value="-- Добавлен пакет Pricing в котором добавлены интерфейсы для цено образования , также добавлены классы заглушки FlatTariff и SimpleTariffFactory,написаны тесты" />
+    <MESSAGE value="-- Добавлена реализация обработки операций и тесты" />
+    <option name="LAST_COMMIT_MESSAGE" value="-- Добавлена реализация обработки операций и тесты" />
   </component>
 </project>
