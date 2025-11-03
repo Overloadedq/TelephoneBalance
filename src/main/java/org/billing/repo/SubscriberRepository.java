@@ -1,6 +1,7 @@
 package org.billing.repo;
 
 import org.billing.domain.Subscriber;
+import org.billing.domain.SubscriberDB;
 
 import java.util.List;
 import java.util.Optional;

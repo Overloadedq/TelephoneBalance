@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1722649f-2b56-4a78-9bf1-dd17fe5343c7" name="Changes" comment="-- Добавлена реализация обработки операций и тесты">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/pricing/impl/PlanA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/pricing/impl/PlanB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/pricing/impl/PlanC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/pricing/impl/PlanD.java" afterDir="false" />
+    <list default="true" id="1722649f-2b56-4a78-9bf1-dd17fe5343c7" name="Changes" comment="-- Реализовано подключение к тестовой базе данных">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/db/DatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/db/TestConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/db/TestSubRepoDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/domain/SubscriberDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/domain/UsageRecordDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/domain/UsageTypeDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/repo/JdbcSubscriberRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/repo/SubRepoBD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/billing/repo/SubscriberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billing/repo/SubscriberRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,32 +55,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.InMemorySubscriberRepo.executor": "Run",
-    "Application.Subscriber.executor": "Run",
-    "JUnit.FileTest.testCsvUsageReader.executor": "Debug",
-    "JUnit.SubscriberTest.executor": "Run",
-    "JUnit.SubscriberTest.testDebit.executor": "Run",
-    "JUnit.TariffPlanTest.testCallPricing.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "/Users/tolik/IdeaProjects/TelephoneBalance/target/generated-test-sources/test-annotations",
-    "last_opened_file_path": "/Users/tolik/IdeaProjects/TelephoneBalance",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/tolik/IdeaProjects/TelephoneBalance/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Facets",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.InMemorySubscriberRepo.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Subscriber.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestConnection.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestSubRepoDB.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FileTest.testCsvUsageReader.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SubscriberTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SubscriberTest.testDebit.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TariffPlanTest.testCallPricing.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/tolik/IdeaProjects/TelephoneBalance/target/generated-test-sources/test-annotations&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/tolik/IdeaProjects/TelephoneBalance&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/tolik/IdeaProjects/TelephoneBalance/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/data" />
@@ -83,7 +92,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Subscriber">
+  <component name="RunManager" selected="Application.TestSubRepoDB">
     <configuration name="InMemorySubscriberRepo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.billing.io.InMemorySubscriberRepo" />
       <module name="TelephoneBalance" />
@@ -97,12 +106,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Subscriber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.billing.domain.Subscriber" />
+    <configuration name="TestConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.billing.db.TestConnection" />
       <module name="TelephoneBalance" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.billing.domain.*" />
+          <option name="PATTERN" value="org.billing.db.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSubRepoDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.billing.db.TestSubRepoDB" />
+      <module name="TelephoneBalance" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.billing.db.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -126,21 +148,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SubscriberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TelephoneBalance" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.billing.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.billing.domain" />
-      <option name="MAIN_CLASS_NAME" value="org.billing.domain.SubscriberTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TariffPlanTest.testCallPricing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TelephoneBalance" />
       <extension name="coverage">
@@ -159,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestSubRepoDB" />
+        <item itemvalue="Application.TestConnection" />
         <item itemvalue="JUnit.TariffPlanTest.testCallPricing" />
         <item itemvalue="JUnit.FileTest.testCsvUsageReader" />
         <item itemvalue="Application.InMemorySubscriberRepo" />
-        <item itemvalue="Application.Subscriber" />
-        <item itemvalue="JUnit.SubscriberTest" />
       </list>
     </recent_temporary>
   </component>
@@ -193,7 +200,15 @@
       <workItem from="1760284986168" duration="6000" />
       <workItem from="1760284999491" duration="132000" />
       <workItem from="1760285236916" duration="19000" />
-      <workItem from="1760285262257" duration="8140000" />
+      <workItem from="1760285262257" duration="11752000" />
+      <workItem from="1760795484204" duration="751000" />
+      <workItem from="1761026900591" duration="13000" />
+      <workItem from="1761072270837" duration="1611000" />
+      <workItem from="1761115955288" duration="599000" />
+      <workItem from="1761507021740" duration="68000" />
+      <workItem from="1761727555340" duration="6229000" />
+      <workItem from="1761921730009" duration="961000" />
+      <workItem from="1762195112301" duration="614000" />
     </task>
     <task id="LOCAL-00001" summary="-- Создание POJO класса Subscriber">
       <option name="closed" value="true" />
@@ -291,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760295572325</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="-- Добавлены тарифные планы и тесты к ним">
+      <option name="closed" value="true" />
+      <created>1760338960951</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1760338960951</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,6 +333,8 @@
     <MESSAGE value="-- Добавлен класс с тестами PhoneNumberTest для класса PhoneNumber" />
     <MESSAGE value="-- Добавлен пакет Pricing в котором добавлены интерфейсы для цено образования , также добавлены классы заглушки FlatTariff и SimpleTariffFactory,написаны тесты" />
     <MESSAGE value="-- Добавлена реализация обработки операций и тесты" />
-    <option name="LAST_COMMIT_MESSAGE" value="-- Добавлена реализация обработки операций и тесты" />
+    <MESSAGE value="-- Добавлены тарифные планы и тесты к ним" />
+    <MESSAGE value="-- Реализовано подключение к тестовой базе данных" />
+    <option name="LAST_COMMIT_MESSAGE" value="-- Реализовано подключение к тестовой базе данных" />
   </component>
 </project>
