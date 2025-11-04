@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1722649f-2b56-4a78-9bf1-dd17fe5343c7" name="Changes" comment="-- Реализовано подключение к тестовой базе данных">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/db/DatabaseConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/db/TestConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/db/TestSubRepoDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/domain/SubscriberDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/domain/UsageRecordDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/domain/UsageTypeDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/repo/JdbcSubscriberRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/repo/SubRepoBD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billing/service/SubscriberService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/billing/repo/JdbcSubscriberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billing/repo/JdbcSubscriberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/billing/repo/SubRepoBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billing/repo/SubRepoBD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/billing/repo/SubscriberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billing/repo/SubscriberRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,6 +202,7 @@
       <workItem from="1761727555340" duration="6229000" />
       <workItem from="1761921730009" duration="961000" />
       <workItem from="1762195112301" duration="614000" />
+      <workItem from="1762233519609" duration="1957000" />
     </task>
     <task id="LOCAL-00001" summary="-- Создание POJO класса Subscriber">
       <option name="closed" value="true" />

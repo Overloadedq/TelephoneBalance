@@ -1,8 +1,9 @@
 package org.billing.repo;
 
 import org.billing.db.DatabaseConnection;
+import org.billing.domain.*;
 
-import org.billing.domain.SubscriberDB;
+
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -61,6 +62,35 @@ public class JdbcSubscriberRepository implements SubRepoBD {
         }
         return Optional.empty();
     }
+
+    @Override
+    public Optional<SubscriberDB> findConId(Connection connection, int id) {
+        String sql = "SELECT id, username, password_hash, email, role, blocked FROM subscribers WHERE id = ?";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return Optional.of(mapRowToSubscriber(rs));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return Optional.empty();
+    }
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public Optional<SubscriberDB> findByUsername(String username) {
