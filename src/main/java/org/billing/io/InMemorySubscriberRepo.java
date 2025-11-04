@@ -8,13 +8,18 @@ import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.Connection;
 import java.util.*;
 
 public class InMemorySubscriberRepo implements SubscriberRepository {
     private final Map<String, Subscriber> subscribers;
 
 
-
+    @Override
+    public void update(Connection conn, Subscriber subscriber) {
+        // Для in-memory просто обновляем объект в списке
+        subscribers.replace(subscriber.getPhoneNumber(), subscriber);
+    }
     public InMemorySubscriberRepo() {
         subscribers = new LinkedHashMap<>();
 
@@ -23,7 +28,7 @@ public class InMemorySubscriberRepo implements SubscriberRepository {
 
 
     @Override
-    public Optional<Subscriber> findByPhone(String phoneNumber) {
+    public Optional<Subscriber> findByPhone(Connection conn, String phoneNumber) {
         if(subscribers.isEmpty()) {
             return Optional.empty();
         }
@@ -48,6 +53,11 @@ public class InMemorySubscriberRepo implements SubscriberRepository {
     @Override
     public List<Subscriber> findAll() {
         return new ArrayList<>(subscribers.values());
+    }
+
+    @Override
+    public void create(Connection conn, Subscriber subscriber) {
+
     }
 
     void loadFromFileCsv(String resourcePath) throws IOException {
@@ -101,6 +111,10 @@ public class InMemorySubscriberRepo implements SubscriberRepository {
                        }
                    });
        }
+    }
+    @Override
+    public Connection getConnection() {
+        return null; // для in-memory репозитория, в тестах Connection не нужен
     }
 
 

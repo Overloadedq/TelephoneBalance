@@ -4,16 +4,15 @@ import org.billing.domain.Subscriber;
 import org.billing.domain.UsageRecord;
 import org.billing.domain.UsageType;
 
-import org.billing.pricing.FlatTariff;
 import org.billing.pricing.SimpleTariffFactory;
 import org.billing.pricing.TariffFactory;
-import org.billing.pricing.TariffPlan;
 import org.billing.repo.SubscriberRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +35,7 @@ class BillingEngineTest {
         }
 
         @Override
-        public Optional<Subscriber> findByPhone(String phoneNumber) {
+        public Optional<Subscriber> findByPhone(Connection conn, String phoneNumber) {
             if (subscriber != null && subscriber.getPhoneNumber().equals(phoneNumber)) {
                 return Optional.of(subscriber);
             }
@@ -51,6 +50,21 @@ class BillingEngineTest {
         @Override
         public List<Subscriber> findAll() {
             return List.of();
+        }
+
+        @Override
+        public void create(Connection conn, Subscriber subscriber) {
+
+        }
+
+        @Override
+        public void update(Connection conn, Subscriber subscriber) {
+
+        }
+
+        @Override
+        public Connection getConnection() {
+            return null;
         }
     }
 

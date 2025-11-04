@@ -20,4 +20,5 @@ public interface SubRepoBD {
     void update(SubscriberDB subscriber);       // Обновить данные
     void delete(int id);
     Optional<SubscriberDB> findConId(Connection connection, int id);
+    Connection getConnection();
 }

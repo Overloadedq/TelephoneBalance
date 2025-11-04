@@ -45,6 +45,18 @@ public class JdbcSubscriberRepository implements SubRepoBD {
     }
 
     @Override
+    public Connection getConnection() {
+        try {
+            return DatabaseConnection.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null; // или можно бросить RuntimeException
+        }
+    }
+
+
+
+    @Override
     public Optional<SubscriberDB> findById(int id) {
         String sql = "SELECT id, username, password_hash, email, role, blocked FROM subscribers WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -81,15 +93,6 @@ public class JdbcSubscriberRepository implements SubRepoBD {
 
         return Optional.empty();
     }
-
-
-
-
-
-
-
-
-
 
 
     @Override
@@ -179,6 +182,8 @@ public class JdbcSubscriberRepository implements SubRepoBD {
         s.setEmail(rs.getString("email"));
         s.setRole(rs.getString("role"));
         s.setBlocked(rs.getBoolean("blocked"));
+
         return s;
     }
+
 }

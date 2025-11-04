@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="TelephoneBalance:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/TelephoneBalance_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="TelephoneBalance" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.7.8" />
+          <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.49.5" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:2.0.16" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:2.0.16" />
+          <element id="library" level="project" name="Maven: org.jetbrains:annotations:26.0.2-1" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="TelephoneBalance/web/Web" />
+      <element id="module-output" name="TelephoneBalance" />
+    </root>
+  </artifact>
+</component>

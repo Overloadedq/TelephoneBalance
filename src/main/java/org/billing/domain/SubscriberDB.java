@@ -1,5 +1,7 @@
 package org.billing.domain;
 
+import java.math.BigDecimal;
+
 public class SubscriberDB {
     private int id;
     private String username;
@@ -7,6 +9,10 @@ public class SubscriberDB {
     private String email;
     private String role;
     private boolean blocked;
+
+
+
+
 
     // Геттеры
     public int getId() { return id; }
